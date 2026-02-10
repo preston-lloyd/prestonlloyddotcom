@@ -4,18 +4,25 @@ import { ReactElement } from "react";
 type ChildProps = { className?: string } & Record<string, unknown>;
 
 type ContainerProps = {
-    children: ReactElement<ChildProps>;
-    className?: string;
-    asChild?: boolean;
+  children?: ReactElement<ChildProps> | ReactElement<ChildProps>[];
+  size?: "sm" | "md" | "lg";
+  className?: string;
+  asChild?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export default function Container({ children, className = "", asChild = false, ...props }: ContainerProps) {
-    const containerClassName = `max-w-7xl mx-auto ${className}`
-    const Component = asChild ? Slot : "div";
+const sizes = {
+  sm: "max-w-5xl",
+  md: "max-w-6xl",
+  lg: "max-w-7xl",
+}
 
-    return (
-        <Component className={containerClassName} {...props}>
-            {children}
-        </Component>
-    )
+export default function Container({ children, className = "", asChild = false, size = "md", ...props }: ContainerProps) {
+  const containerClassName = `mx-auto px-4 ${sizes[size]} ${className}`
+  const Component = asChild ? Slot : "div";
+
+  return (
+    <Component className={containerClassName} {...props}>
+      {children}
+    </Component>
+  )
 }

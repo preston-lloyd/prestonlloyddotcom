@@ -1,19 +1,29 @@
 import Link from "next/link";
 import Container from "@/components/Container";
+import NavItem from "./NavItem";
 
 export default function Header() {
   return (
-    <Container asChild>
-        <header className="fixed top-0 left-0 right-0 z-50 mt-8 px-6 py-4 bg-black/40 backdrop-blur-sm rounded-xl border border-white/15">
-            <div>
-                <Link href="/" className="font-bold uppercase">
-                    Preston Lloyd
-                </Link>
-            </div>
-            <div>
+    <Container size="lg" asChild>
+      <header className="sticky top-8 left-0 right-0 z-50 my-8">
+        <div className="px-6 py-4 shadow-xl shadow-stone-900/80 bg-stone-900/40 backdrop-blur rounded-xl border border-stone-700 flex justify-between items-center">
+          <div>
+            <Link href="/" className="font-bold uppercase text-stone-100">
+              Preston Lloyd
+            </Link>
+          </div>
 
-            </div>
-        </header>
+          <nav className="flex gap-4">
+            <NavItem href="/work">
+              Work
+            </NavItem>
+            
+            <NavItem href="/contact">
+              Contact
+            </NavItem>
+          </nav>
+        </div>
+      </header>
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
@@ -22,17 +23,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${ibmPlexSans.variable} antialiased`}
-      >
+      <body className={`${ibmPlexSans.variable} antialiased`}>
+        <a href="#main" className="sr-only">
+          Skip to main content
+        </a>
+
         <Header />
 
-        <main>
+        <main id="main">
           {children}
         </main>
 
         <Footer />
       </body>
+
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
+      )}
     </html>
   );
 }
