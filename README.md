@@ -2,7 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### 1. Sanity Content Setup
+
+All site content is editable in Sanity Studio at `/studio`.
+
+**First-time setup:**
+1. Deploy the schema: `npx sanity schema deploy`
+2. Seed initial content: `pnpm exec tsx scripts/seed-sanity.ts` (requires `SANITY_API_TOKEN` in `.env.local` with write access)
+
+Or create documents manually in the Studio: **Site Settings**, **Contact Page**, and **Projects**.
+
+### 2. Run the development server
 
 ```bash
 npm run dev
