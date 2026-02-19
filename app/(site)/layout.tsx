@@ -9,19 +9,16 @@ import "@/app/globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
-  subsets: ["latin"],
 });
 
 const italiana = Italiana({
   variable: "--font-italiana",
   weight: ["400"],
-  subsets: ["latin"],
 });
 
 const rockSalt = Rock_Salt({
   variable: "--font-rock-salt",
   weight: ["400"],
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
