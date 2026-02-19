@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import Square from "@/components/Square";
+import FontSwitcherHeading from "@/components/FontSwitcherHeading";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
 import FooterCTA from "@/components/Footer/FooterCTA";
@@ -27,9 +28,9 @@ export default async function Home() {
         <section>
           <div className="grid grid-cols-2 gap-4 items-center min-h-[70vh]">
             <div className="flex flex-col gap-4">
-              <Heading size="8xl" asChild>
-                <h1>{hero?.title}</h1>
-              </Heading>
+              <FontSwitcherHeading asChild>
+                <h1 className="text-8xl text-stone-100">{hero?.title}</h1>
+              </FontSwitcherHeading>
 
               <p className="text-lg">
                 {hero?.subtitle}
