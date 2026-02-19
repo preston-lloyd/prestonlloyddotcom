@@ -9,7 +9,7 @@ export default async function FooterCTA() {
 
   return (
     <Container className="mt-8">
-      <section className="bg-yellow-500 text-white p-8 rounded-xl flex flex-col lg:flex-row justify-between items-end gap-4">
+      <section className="bg-yellow-400/40 border border-yellow-400 text-white p-8 rounded-xl flex flex-col lg:flex-row justify-between items-end gap-4">
         <div>
           <h2 className="text-2xl font-bold uppercase tracking-widest">{title}</h2>
           <p className="text-lg text-yellow-100 text-balance">{description}</p>
@@ -17,7 +17,7 @@ export default async function FooterCTA() {
         <div className="shrink-0">
           <Link
             href="/contact"
-            className="inline-flex text-center uppercase font-medium tracking-widest px-4 py-2 bg-white text-yellow-500 rounded-md"
+            className="inline-flex text-center uppercase font-medium tracking-widest px-4 py-2 bg-white text-stone-700 rounded-md"
           >
             {ctaLabel}
           </Link>
