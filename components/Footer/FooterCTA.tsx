@@ -5,13 +5,7 @@ import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 export default async function FooterCTA() {
   const { data } = await sanityFetch({ query: SITE_SETTINGS_QUERY });
-  const footerCta = data?.footerCta;
-
-  const title = footerCta?.title ?? "Ready to Work Together?";
-  const description =
-    footerCta?.description ??
-    "I'm always looking for new projects and collaborations. If you have a project in mind, please get in touch.";
-  const ctaLabel = footerCta?.ctaLabel ?? "Contact Me";
+  const { title, description, ctaLabel } = data?.footerCta;
 
   return (
     <Container className="mt-8">
