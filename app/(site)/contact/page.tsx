@@ -15,15 +15,7 @@ export async function generateMetadata() {
 
 export default async function ContactPage() {
   const { data } = await sanityFetch({ query: CONTACT_PAGE_QUERY });
-
-  const title = data?.title ?? "Get in Touch";
-  const description =
-    data?.description ??
-    "I'm always open to discussing new projects, collaborations, or opportunities. Send me a message and I'll get back to you as soon as I can.";
-  const contactLinks = data?.contactLinks ?? [
-    { label: "hello@prestonlloyd.com", url: "mailto:hello@prestonlloyd.com" },
-    { label: "LinkedIn", url: "https://linkedin.com/in/prestonlloyd" },
-  ];
+  const { title, description, contactLinks } = data;
 
   return (
     <Container asChild>
@@ -32,7 +24,10 @@ export default async function ContactPage() {
           <Heading size="6xl" asChild className="mb-4">
             <h1>{title}</h1>
           </Heading>
-          <p className="text-lg text-stone-500 mb-12">{description}</p>
+          
+          <p className="text-lg text-stone-500 mb-12">
+            {description}
+          </p>
 
           <ContactForm submitAction={submitContactForm} />
 
