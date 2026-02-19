@@ -6,6 +6,7 @@ import Heading from "@/components/Heading";
 import Button from "@/components/Button";
 import FooterCTA from "@/components/Footer/FooterCTA";
 import SanityImage from "@/components/SanityImage";
+import FadeIn from "@/components/FadeIn";
 import { sanityFetch } from "@/sanity/lib/live";
 import { SITE_SETTINGS_QUERY, HOME_PAGE_QUERY } from "@/sanity/lib/queries";
 
@@ -28,9 +29,9 @@ export default async function Home() {
         <section>
           <div className="grid grid-cols-2 gap-4 items-center min-h-[70vh]">
             <div className="flex flex-col gap-4">
-              <FontSwitcherHeading asChild>
-                <h1 className="text-8xl text-stone-100">{hero?.title}</h1>
-              </FontSwitcherHeading>
+              <Heading size="8xl" asChild>
+                <h1 className="text-stone-100">{hero?.title}</h1>
+              </Heading>
 
               <p className="text-lg">
                 {hero?.subtitle}
@@ -68,7 +69,12 @@ export default async function Home() {
 
           <div className="grid grid-cols-3 gap-4">
             {tools.map((group: { _key?: string; title: string; items?: string[] }, index: number) => (
-              <div key={group._key ?? index} className="border border-stone-700 rounded-xl p-4">
+              <FadeIn
+                key={group._key ?? index}
+                amount={1}
+                delay={index * 0.25}
+                className="border border-stone-700 rounded-xl p-4"
+              >
                 <Heading size="xl" asChild className="mb-4">
                   <h3>{group.title}</h3>
                 </Heading>
@@ -77,7 +83,7 @@ export default async function Home() {
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </section>
@@ -89,8 +95,9 @@ export default async function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {brands.map((brand: { _key?: string; name: string; logo?: { asset?: unknown } }, index: number) => (
-              <div
+              <FadeIn
                 key={brand._key ?? index}
+                delay={index * 0.2}
                 className="aspect-square rounded-xl border border-stone-700 flex items-center justify-center text-stone-600 text-sm font-medium hover:border-stone-600 hover:text-stone-500 transition-colors overflow-hidden"
               >
                 {brand.logo?.asset ? (
@@ -98,7 +105,7 @@ export default async function Home() {
                 ) : (
                   brand.name
                 )}
-              </div>
+              </FadeIn>
             ))}
           </div>
         </section>
