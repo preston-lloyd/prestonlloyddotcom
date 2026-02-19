@@ -4,7 +4,7 @@ export type Project = {
   description: string;
   role?: string;
   year?: string;
-  technologies: string[];
+  technologies?: string[];
   highlights?: string[];
   link?: string;
   linkLabel?: string;
