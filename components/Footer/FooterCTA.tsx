@@ -14,7 +14,7 @@ export default async function FooterCTA() {
   const ctaLabel = footerCta?.ctaLabel ?? "Contact Me";
 
   return (
-    <Container size="sm" className="mt-8">
+    <Container className="mt-8">
       <section className="bg-yellow-500 text-white p-8 rounded-xl flex flex-col lg:flex-row justify-between items-end gap-4">
         <div>
           <h2 className="text-2xl font-bold uppercase tracking-widest">{title}</h2>
