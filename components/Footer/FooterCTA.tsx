@@ -5,21 +5,21 @@ import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 export default async function FooterCTA() {
   const { data } = await sanityFetch({ query: SITE_SETTINGS_QUERY });
-  const { title, description, ctaLabel } = data?.footerCta;
+  const { title, description, ctaLabel } = data?.footerCta ?? {};
 
   return (
     <Container className="mt-8">
       <section className="bg-yellow-400/40 border border-yellow-400 text-white p-8 rounded-xl flex flex-col lg:flex-row justify-between items-end gap-4">
         <div>
-          <h2 className="text-2xl font-bold uppercase tracking-widest">{title}</h2>
-          <p className="text-lg text-yellow-100 text-balance">{description}</p>
+          <h2 className="text-2xl font-bold uppercase tracking-widest">{title ?? "Get in touch"}</h2>
+          <p className="text-lg text-yellow-100 text-balance">{description ?? ""}</p>
         </div>
         <div className="shrink-0">
           <Link
             href="/contact"
             className="inline-flex text-center uppercase font-medium tracking-widest px-4 py-2 bg-white text-stone-700 rounded-md"
           >
-            {ctaLabel}
+            {ctaLabel ?? "Contact"}
           </Link>
         </div>
       </section>

@@ -15,18 +15,18 @@ export async function generateMetadata() {
 
 export default async function ContactPage() {
   const { data } = await sanityFetch({ query: CONTACT_PAGE_QUERY });
-  const { title, description, contactLinks } = data;
+  const { title, description, contactLinks = [] } = data ?? {};
 
   return (
     <Container asChild>
       <section className="py-16">
         <div className="max-w-2xl">
           <Heading size="6xl" asChild className="mb-4">
-            <h1>{title}</h1>
+            <h1>{title ?? "Contact"}</h1>
           </Heading>
           
           <p className="text-lg text-stone-500 mb-12">
-            {description}
+            {description ?? "Get in touch."}
           </p>
 
           <ContactForm submitAction={submitContactForm} />

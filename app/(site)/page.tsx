@@ -15,13 +15,13 @@ export async function generateMetadata() {
   const seo = data?.seo;
   return {
     title: seo?.siteTitle ?? "Preston Lloyd",
-    description: seo?.siteDescription ?? "Preston Lloyd is a software engineer and designer.",
+    description: seo?.siteDescription ?? "Preston Lloyd is a software engineer.",
   };
 }
 
 export default async function Home() {
   const { data } = await sanityFetch({ query: HOME_PAGE_QUERY });
-  const { hero, tools = [], brands = [] } = data;
+  const { hero, tools = [], brands = [] } = data ?? {};
 
   return (
     <>
