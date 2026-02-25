@@ -93,7 +93,7 @@ export default async function Home() {
         <section className="py-24">
           <Heading size="4xl" className="mb-8">Brands I&apos;ve Worked With</Heading>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {brands.map((brand: { _key?: string; name: string; logo?: { asset?: unknown } }, index: number) => (
               <FadeIn
                 key={brand._key ?? index}
@@ -101,7 +101,7 @@ export default async function Home() {
                 className="aspect-square rounded-xl border border-stone-700 flex items-center justify-center text-stone-600 text-sm font-medium hover:border-stone-600 hover:text-stone-500 transition-colors overflow-hidden"
               >
                 {brand.logo?.asset ? (
-                  <SanityImage value={brand.logo as { asset?: { _id?: string; url?: string; metadata?: { lqip?: string } }; alt?: string }} width={120} height={120} className="object-contain p-4" />
+                  <SanityImage value={brand.logo as { asset?: { _id?: string; url?: string; metadata?: { lqip?: string } }; alt?: string }} width={300} height={300} className="object-contain p-4 invert opacity-50" />
                 ) : (
                   brand.name
                 )}
