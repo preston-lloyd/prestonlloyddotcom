@@ -23,13 +23,19 @@ export async function submitContactForm(
   const message = formData.get("message") as string;
 
   const fieldErrors: ContactFormState["fieldErrors"] = {};
-  if (!name?.trim()) fieldErrors.name = "Name is required";
-  if (!email?.trim()) fieldErrors.email = "Email is required";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!name?.trim()) {
+    fieldErrors.name = "Name is required";
+  }
+  
+  if (!email?.trim()) {
+    fieldErrors.email = "Email is required";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     fieldErrors.email = "Please enter a valid email address";
   }
-  if (!message?.trim()) fieldErrors.message = "Message is required";
-  else if (message.trim().length < 10) {
+
+  if (!message?.trim()) {
+    fieldErrors.message = "Message is required";
+  } else if (message.trim().length < 10) {
     fieldErrors.message = "Message must be at least 10 characters";
   }
 
