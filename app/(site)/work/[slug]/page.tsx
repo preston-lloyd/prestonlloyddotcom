@@ -27,7 +27,11 @@ export async function generateMetadata({ params }: Props) {
     params: { slug },
     stega: false,
   });
-  if (!project) return { title: "Project Not Found" };
+
+  if (!project) {
+    return { title: "Project Not Found" };
+  }
+
   return {
     title: project.title,
     description: project.description,
