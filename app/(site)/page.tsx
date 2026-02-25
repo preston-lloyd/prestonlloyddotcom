@@ -98,10 +98,10 @@ export default async function Home() {
               <FadeIn
                 key={brand._key ?? index}
                 delay={index * 0.2}
-                className="aspect-square rounded-xl border border-stone-700 flex items-center justify-center text-stone-600 text-sm font-medium hover:border-stone-600 hover:text-stone-500 transition-colors overflow-hidden"
+                className="aspect-4/3 rounded-xl border border-stone-700 flex items-center justify-center text-stone-600 text-sm font-medium hover:border-stone-600 hover:text-stone-500 transition-colors overflow-hidden p-10"
               >
                 {brand.logo?.asset ? (
-                  <SanityImage value={brand.logo as { asset?: { _id?: string; url?: string; metadata?: { lqip?: string } }; alt?: string }} width={300} height={300} className="object-contain p-4 invert opacity-50" />
+                  <SanityImage value={brand.logo as { asset?: { _id?: string; url?: string; metadata?: { lqip?: string } }; alt?: string }} width={400} height={400} className="object-contain p-4 invert opacity-50" />
                 ) : (
                   brand.name
                 )}
