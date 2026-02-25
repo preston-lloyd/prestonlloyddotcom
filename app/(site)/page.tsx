@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import Square from "@/components/Square";
-import FontSwitcherHeading from "@/components/FontSwitcherHeading";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
 import FooterCTA from "@/components/Footer/FooterCTA";
