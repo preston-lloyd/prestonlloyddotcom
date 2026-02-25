@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Italiana, Rock_Salt } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -11,15 +11,15 @@ const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
 });
 
-const italiana = Italiana({
-  variable: "--font-italiana",
-  weight: ["400"],
-});
+// const italiana = Italiana({
+//   variable: "--font-italiana",
+//   weight: ["400"],
+// });
 
-const rockSalt = Rock_Salt({
-  variable: "--font-rock-salt",
-  weight: ["400"],
-});
+// const rockSalt = Rock_Salt({
+//   variable: "--font-rock-salt",
+//   weight: ["400"],
+// });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prestonlloyd.com";
 
@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ibmPlexSans.variable} ${italiana.variable} ${rockSalt.variable} antialiased`}>
+      <body className={`${ibmPlexSans.variable} antialiased`}>
         <a href="#main" className="sr-only">
           Skip to main content
         </a>
