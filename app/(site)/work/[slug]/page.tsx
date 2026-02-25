@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: project.title,
     description: project.description,
+    alternates: { canonical: `/work/${slug}` },
   };
 }
 

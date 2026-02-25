@@ -16,6 +16,7 @@ export async function generateMetadata() {
   return {
     title: seo?.siteTitle ?? "Preston Lloyd",
     description: seo?.siteDescription ?? "Preston Lloyd is a software engineer.",
+    alternates: { canonical: "/" },
   };
 }
 

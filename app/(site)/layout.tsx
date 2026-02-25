@@ -21,7 +21,10 @@ const rockSalt = Rock_Salt({
   weight: ["400"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prestonlloyd.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Preston Lloyd — Software Engineer & Designer",
     template: "%s | Preston Lloyd",

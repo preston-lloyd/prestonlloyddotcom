@@ -8,6 +8,7 @@ import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 export const metadata = {
   title: "Work",
   description: "Selected projects and case studies by Preston Lloyd — software engineer.",
+  alternates: { canonical: "/work" },
 };
 
 export default async function WorkPage() {

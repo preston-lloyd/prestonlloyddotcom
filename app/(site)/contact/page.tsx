@@ -10,6 +10,7 @@ export async function generateMetadata() {
   return {
     title: data?.title ?? "Contact",
     description: data?.description ?? "Get in touch with Preston Lloyd for projects, collaborations, or just to say hello.",
+    alternates: { canonical: "/contact" },
   };
 }
 
