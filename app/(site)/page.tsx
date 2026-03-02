@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import FooterCTA from "@/components/Footer/FooterCTA";
 import SanityImage from "@/components/SanityImage";
 import FadeIn from "@/components/FadeIn";
+import ComponentViewer from "@/components/ComponentViewer";
 import { sanityFetch } from "@/sanity/lib/live";
 import { SITE_SETTINGS_QUERY, HOME_PAGE_QUERY } from "@/sanity/lib/queries";
 
@@ -69,21 +70,22 @@ export default async function Home() {
 
           <div className="grid grid-cols-3 gap-4">
             {tools.map((group: { _key?: string; title: string; items?: string[] }, index: number) => (
-              <FadeIn
-                key={group._key ?? index}
-                amount={1}
-                delay={index * 0.25}
-                className="border border-stone-700 rounded-xl p-4"
-              >
-                <Heading size="xl" asChild className="mb-4">
-                  <h3>{group.title}</h3>
-                </Heading>
-                <ul>
-                  {(group.items ?? []).map((item: string, i: number) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </FadeIn>
+              <ComponentViewer key={group._key ?? index}>
+                <FadeIn
+                  amount={1}
+                  delay={index * 0.25}
+                  className="border border-stone-700 rounded-xl p-4"
+                >
+                  <Heading size="xl" asChild className="mb-4">
+                    <h3>{group.title}</h3>
+                  </Heading>
+                  <ul>
+                    {(group.items ?? []).map((item: string, i: number) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </FadeIn>
+              </ComponentViewer>
             ))}
           </div>
         </section>
