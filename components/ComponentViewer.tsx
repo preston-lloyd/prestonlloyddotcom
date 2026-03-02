@@ -1,48 +1,51 @@
 "use client";
 
-import { ReactElement } from "react";
-import { Dialog, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription } from "@radix-ui/react-dialog";
-import { Slot } from "@radix-ui/react-slot";
+import { useState, cloneElement, ReactElement, ReactNode, Children } from "react";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import Drawer from "./Drawer";
 
 type ComponentViewerProps = {
   children: ReactElement;
-  asChild?: boolean;
 };
 
-export default function ComponentViewer({ children, asChild = true }: ComponentViewerProps) {
-  const Component = asChild ? Slot : "div";
+export default function ComponentViewer({ children }: ComponentViewerProps) {
+  const [open, setOpen] = useState(false);
 
-  // Get child props (only when children is a single element)
-  const childProps = (children as ReactElement).props as Record<string, unknown>;
-  const childClassName = typeof childProps?.className === "string" ? childProps.className : undefined;
+  const trigger = (
+    <button
+      key="component-viewer-trigger"
+      type="button"
+      className="absolute -top-1.5 -right-1.5 cursor-pointer bg-stone-100 text-stone-400 rounded-full p-1"
+      onClick={() => setOpen(!open)}
+    >
+      <MagnifyingGlassIcon className="w-4 h-4" />
+    </button>
+  );
 
-  const className = childClassName ? `relative ${childClassName}` : "relative";
+  const existingClassName = (children.props as Record<string, unknown>).className;
+  const mergedClassName =
+    typeof existingClassName === "string"
+      ? `relative ${existingClassName}`.trim()
+      : "relative";
+
+  const existingProps = (children.props || {}) as Record<string, unknown>;
+  const child = cloneElement(children, {
+    ...existingProps,
+    className: mergedClassName,
+    children: [...Children.toArray(existingProps.children as ReactNode), trigger],
+  } as Record<string, unknown>);
+
+  const displayProps = (({ children, ...props }: Record<string, unknown>) => props)(existingProps)
 
   return (
-    <Dialog>
-      <Component className={className}>
-        {children}
+    <>
+      {child}
 
-        <DialogTrigger asChild>
-          <button className="absolute top-0 right-0">
-            Toggle
-          </button>
-        </DialogTrigger>
-      </Component>
-
-      <DialogPortal>
-        <DialogOverlay />
-        <DialogContent>
-          <DialogTitle>
-            <h2>Component Code</h2>
-          </DialogTitle>
-          <DialogDescription>
-            <code>
-              {JSON.stringify(children, null, 2)}
-            </code>
-          </DialogDescription>
-        </DialogContent>
-      </DialogPortal>
-    </Dialog>
+      <Drawer open={open} onOpenChange={setOpen}>
+        <code className="text-sm">
+          {JSON.stringify(displayProps, null, 2)}
+        </code>
+      </Drawer>
+    </>
   );
 }
