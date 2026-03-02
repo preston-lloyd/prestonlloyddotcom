@@ -26,12 +26,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prestonlloyd.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Preston Lloyd — Software Engineer & Designer",
+    default: "Preston Lloyd — Software Engineer",
     template: "%s | Preston Lloyd",
   },
   description: "Preston Lloyd is a software engineer based in the US. Building web applications with React, Next.js, and modern tools.",
   openGraph: {
-    title: "Preston Lloyd — Software Engineer & Designer",
+    title: "Preston Lloyd — Software Engineer",
     description: "Preston Lloyd is a software engineer based in the US.",
   },
 };

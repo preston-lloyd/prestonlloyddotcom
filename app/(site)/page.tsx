@@ -16,6 +16,10 @@ export async function generateMetadata() {
     title: seo?.siteTitle ?? "Preston Lloyd",
     description: seo?.siteDescription ?? "Preston Lloyd is a software engineer.",
     alternates: { canonical: "/" },
+    openGraph: {
+      title: seo?.siteTitle ?? "Preston Lloyd",
+      description: seo?.siteDescription ?? "Preston Lloyd is a software engineer.",
+    },
   };
 }
 
