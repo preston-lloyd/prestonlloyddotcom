@@ -8,15 +8,15 @@ type HeadingProps = {
 }
 
 const sizes = {
-  "xl": "text-xl",
-  "2xl": "text-2xl",
-  "3xl": "text-3xl",
-  "4xl": "text-4xl",
-  "5xl": "text-5xl",
-  "6xl": "text-6xl",
-  "7xl": "text-7xl",
-  "8xl": "text-8xl",
-  "9xl": "text-9xl",
+  "xl": "text-lg lg:text-xl",
+  "2xl": "text-lg lg:text-2xl",
+  "3xl": "text-xl lg:text-3xl",
+  "4xl": "text-2xl lg:text-4xl",
+  "5xl": "text-3xl lg:text-5xl",
+  "6xl": "text-4xl lg:text-6xl",
+  "7xl": "text-5xl lg:text-7xl",
+  "8xl": "text-6xl lg:text-8xl",
+  "9xl": "text-7xl lg:text-9xl",
 }
 
 export default function Heading({ children, className = "", size = "2xl", asChild = false }: HeadingProps) {

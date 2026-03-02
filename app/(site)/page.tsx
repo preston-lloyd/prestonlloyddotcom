@@ -27,7 +27,7 @@ export default async function Home() {
     <>
       <Container asChild>
         <section>
-          <div className="grid grid-cols-2 gap-4 items-center min-h-[70vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center min-h-[70vh]">
             <div className="flex flex-col gap-4">
               <Heading size="8xl" asChild>
                 <h1 className="text-stone-100">{hero?.title}</h1>
@@ -67,7 +67,7 @@ export default async function Home() {
         <section className="py-24">
           <Heading size="4xl" className="mb-8">My Tools</Heading>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {tools.map((group: { _key?: string; title: string; items?: string[] }, index: number) => (
               <FadeIn
                 key={group._key ?? index}
