@@ -1,0 +1,24 @@
+{
+  "name": "@prestonlloyddotcom/sanity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./env": "./env.ts",
+    "./schema": "./schemaTypes/index.ts",
+    "./structure": "./structure.ts"
+  },
+  "scripts": {
+    "dev": "sanity dev",
+    "deploy": "sanity deploy",
+    "build": "sanity build"
+  },
+  "dependencies": {
+    "@sanity/vision": "^4.22.0",
+    "sanity": "^4.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}
