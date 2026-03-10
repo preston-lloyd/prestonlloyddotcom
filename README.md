@@ -41,6 +41,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repo is a pnpm monorepo. To deploy the Next.js app on Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Import the repo** in the [Vercel Dashboard](https://vercel.com/new) and create a project.
+
+2. **Set Root Directory** to `apps/web`  
+   (Project Settings → General → Root Directory → Edit → enter `apps/web` → Save).
+
+3. **Environment variables**  
+   Add your env vars in Project Settings → Environment Variables (e.g. `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION`, and any others you use like `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID`).
+
+4. **Build**  
+   The app uses `apps/web/vercel.json`, which runs install from the monorepo root (`cd ../.. && pnpm install`) so the `@prestonlloyddotcom/sanity` workspace is available. No extra Build/Install overrides are needed in the dashboard unless you want to change them.
+
+Then deploy. The framework is auto-detected as Next.js.
